@@ -102,6 +102,7 @@ public class CreateOrganization {
 		driver.findElement(By.linkText("Sign Out")).click();
 		System.out.println("logout successful");
 			
+	
 		
 		
 	}
