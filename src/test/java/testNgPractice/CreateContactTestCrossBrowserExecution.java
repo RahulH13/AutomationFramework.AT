@@ -8,7 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
-import genericUtilities.BaseClass;
+import genericUtilities.BaseClassExecutionCrossBrowser;
 import genericUtilities.ExcelFileUtility;
 import genericUtilities.JavaUtility;
 import genericUtilities.PropertyFileUtility;
@@ -20,7 +20,7 @@ import objectRepository.CreateNewContactPage;
 import objectRepository.HomePage;
 import objectRepository.LoginPage;
 
-public class CreateContactTestCrossBrowserExecution extends BaseClass{
+public class CreateContactTestCrossBrowserExecution extends BaseClassExecutionCrossBrowser{
 	
 	@Test
 	public void createContactTest() throws IOException, InterruptedException{

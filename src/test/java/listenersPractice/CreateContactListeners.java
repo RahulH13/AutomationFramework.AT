@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import genericUtilities.BaseClass;
+import genericUtilities.BaseClassExecution;
 import genericUtilities.ExcelFileUtility;
 import genericUtilities.JavaUtility;
 import genericUtilities.PropertyFileUtility;
@@ -23,7 +23,7 @@ import objectRepository.HomePage;
 import objectRepository.LoginPage;
 
 @Listeners(genericUtilities.ListenersImplementationClass.class)
-public class CreateContactListeners extends BaseClass{
+public class CreateContactListeners extends BaseClassExecution{
 	
 	@Test
 	public void createContact() throws IOException, InterruptedException{
@@ -42,7 +42,7 @@ public class CreateContactListeners extends BaseClass{
 		
 		ContactInfoPage cip = new ContactInfoPage(driver);
 		String contactHeader = cip.getContactHeader();
-		//Assert.fail();  //for checking Execution & Screenshot :- failed script
+		Assert.fail();  //for checking Execution & Screenshot :- failed script
 		Assert.assertTrue(contactHeader.contains(LASTNAME));
 		System.out.println(contactHeader);	
 	}

@@ -11,7 +11,7 @@ import org.testng.Reporter;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import genericUtilities.BaseClass;
+import genericUtilities.BaseClassExecution;
 import genericUtilities.ExcelFileUtility;
 import genericUtilities.JavaUtility;
 import genericUtilities.PropertyFileUtility;
@@ -24,7 +24,7 @@ import objectRepository.HomePage;
 import objectRepository.LoginPage;
 
 @Listeners(genericUtilities.ListenersImplementationClass.class)
-public class CreateContactLowLevelReport extends BaseClass{
+public class CreateContactLowLevelReport extends BaseClassExecution{
 	
 	@Test(groups = {"SmokeSuite","RegressionSuite"})
 	public void createContact() throws IOException, InterruptedException{

@@ -4,9 +4,6 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.Test;
 
 import genericUtilities.ExcelFileUtility;
 import genericUtilities.JavaUtility;
@@ -21,8 +18,7 @@ import objectRepository.OrganizationsPage;
 
 public class CreateOrganizationWithIndustryAndType {
 	
-	@Test
-	public void createOrganization() throws IOException, InterruptedException{
+	 public static void main(String[] args) throws IOException, InterruptedException {
 			
 			// step 1: Create all the required object
 			JavaUtility jUtil = new JavaUtility();
@@ -49,14 +45,14 @@ public class CreateOrganizationWithIndustryAndType {
 			} 
 			else if(BROWSER.equalsIgnoreCase("firefox")) 
 			 {
-				WebDriverManager.firefoxdriver().setup();
-				driver = new FirefoxDriver();
+				WebDriverManager.chromedriver().setup();
+				driver = new ChromeDriver();
 				System.out.println(BROWSER+"launched");
 			}
 			 else if(BROWSER.equalsIgnoreCase("edge"))
 			{
-				WebDriverManager.edgedriver().setup();
-				driver = new EdgeDriver();
+				WebDriverManager.chromedriver().setup();
+				driver = new ChromeDriver();
 				System.out.println(BROWSER+"launched");
 			}
 			 else

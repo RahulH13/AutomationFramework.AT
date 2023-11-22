@@ -51,7 +51,7 @@ public class ListenersImplementationClass implements ITestListener{
 		String screenShotName = testScriptName+new JavaUtility().getSystemDate();
 		WebDriverUtility w = new WebDriverUtility();
 		try {
-			  String Path = w.captureScreenShot(BaseClass.sdriver, screenShotName);
+			  String Path = w.captureScreenShot(BaseClassExecution.sdriver, screenShotName);
 			  test.addScreenCaptureFromPath(Path);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

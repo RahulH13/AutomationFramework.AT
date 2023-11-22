@@ -9,11 +9,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Parameters;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import objectRepository.HomePage;
@@ -32,20 +30,14 @@ public class BaseClass {
 	public WebDriverUtility wUtil = new WebDriverUtility();
 	public WebDriver driver = null;
 	
-	//used for Listeners
-	public static WebDriver sdriver;
 	
-	@BeforeSuite(alwaysRun=true) //(group="SmokeSuite")<-- for group Execution //(group={"SmokeSuite","RegressionSuite"})<-- For both group Execution 
+	@BeforeSuite
 	public void bsConfig() {
 		System.out.println("---DB Connection Sucessful---");
 	}
 	
-	//@Parameters("BROWSER")    <-----its for cross browser execution
-	//@BeforeTest(alwaysRun=true)     //This Test for Parallel Execution & CrossBrowser Execution
-	@BeforeClass(alwaysRun=true)
+	@BeforeClass
 	public void bcConfig() throws IOException {
-	//public void bcConfig(String BROWSER) throws IOException {  <-----its for cross browser execution
-	//String BROWSER = pUtil.readDataFromPropertyFile("browser");    <-----its for cross browser execution
 		String BROWSER = pUtil.readDataFromPropertyFile("browser");
 		String URL = pUtil.readDataFromPropertyFile("url");
 		
@@ -68,14 +60,11 @@ public class BaseClass {
 		wUtil.maximizewindow(driver);
 		wUtil.waitForPageLoad(driver);
 		
-		//used for Listeners
-		sdriver=driver;
-		
 		driver.get(URL);
 	}
 
 	
-	@BeforeMethod(alwaysRun=true)
+	@BeforeMethod
 	public void bmConfig() throws IOException {
 		String USERNAME = pUtil.readDataFromPropertyFile("username");
 		String PASSWORD = pUtil.readDataFromPropertyFile("password");
@@ -86,7 +75,7 @@ public class BaseClass {
 	}
 
 	
-	@AfterMethod(alwaysRun=true)
+	@AfterMethod
 	public void amConfig() {
 		HomePage hp = new HomePage(driver);
 		hp.clickOnOrganizationLink();
@@ -94,15 +83,14 @@ public class BaseClass {
 	}
 
 	
-	//@AfterTest(alwaysRun=true)  <-----its for  Parallel Execution & cross browser execution
-	@AfterClass(alwaysRun=true)
+	@AfterClass
 	public void acConfig() {
 		driver.quit();
 		System.out.println("---Browser Closed---");
 	}
 
 	
-	@AfterSuite(alwaysRun=true)
+	@AfterSuite
 	public void asConfig() {
 		System.out.println("---DB Connection Closed---");
 	}
